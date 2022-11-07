@@ -1,4 +1,4 @@
-<?php
+<?php  
   require 'db.php';
   $lgn = $_POST['login'];
   $sql = "SELECT * FROM data WHERE userLogin = '$lgn';";
@@ -7,11 +7,16 @@
     echo('Пользователь уже существует');
     include 'signUp.php';
   }
+  else if ($_POST['login']=='' || $_POST['password1']=='' || $_POST['password2']=='')
+  {
+    echo('Все поля должны быть заполнены!');
+    include 'signUp.php';
+  }
   else if ($_POST['password1'] == $_POST['password2'])
   {    
     $pswrd = $_POST['password1'];
-    include 'rand_generate.php';
     include 'index.php';
+    include 'rand_generate.php';
     do{
         $genIndex = generate_index();
     } while (@sizeof($db->query("SELECT * FROM data WHERE userIndex = '$genIndex';")->fetch_array()) > 0);
