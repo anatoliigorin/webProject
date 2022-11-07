@@ -1,14 +1,16 @@
 <?php
   require 'db.php';
-  if (db->query("SELECT * FROM data WHERE userLogin = {$_POST['login']}"))
+  $lgn = $_POST['login'];
+  if (db->query("SELECT * FROM data WHERE userLogin = '$lgn'"))
   {
     echo('Пользователь уже существует');
     include 'signUp.php';
   }
   else if ($_POST['password1'] == $_POST['password2'])
   {    
+    $pswrd = $_POST['password1'];
     include 'index_generator';
-    $db->query("INSERT INTO data VALUES ({$_POST['login']}, {$_POST['password1']}, generate_index());");
+    $db->query("INSERT INTO data VALUES ('$lgn', '$pswrd', generate_index());");
   }
   else
   {
