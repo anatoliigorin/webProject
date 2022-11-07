@@ -2,7 +2,7 @@
   require 'db.php';
   $lgn = $_POST['login'];
   $sql = "SELECT * FROM data WHERE userLogin = '$lgn';";
-  if ($db->query($sql))
+  if (sizeof($db->query($sql)->fetch_array() > 0)
   {
     echo('Пользователь уже существует');
     include 'signUp.php';
