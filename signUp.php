@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1 align="center">Регистрация пользователя</h1>
-        <form action="new_user.php" method="post">
+        <form action="new_user.php" method="POST">
             <p align="center"><input type="text" name="login" placeholder="Введите логин" size="28" /></p>
             <p align="center"><input type="password" name="password1" placeholder="Введите пароль" size="28" /></p>
             <p align="center"><input type="password" name="password2" placeholder="Пароль еще раз" size="28" /></p>
