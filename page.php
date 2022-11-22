@@ -1,18 +1,66 @@
-
 <html>
+<head> <link rel="stylesheet" href="css/style2.css"> 
+<style>
+      .comment {
+        border: 3px solid #000000;
+        background: #404c5e;
+        color: #ffffff;
+        font-size: 48px;
+
+      }
+      .return-btn
+      {
+        font-size: 24px;
+        border-radius: 48px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        background:#ffc107;
+        background:-moz-linear-gradient(45deg,#ffc107 0,#ff5722 100%);
+        background:-webkit-gradient(left bottom,right top,color-stop(0,#ffc107),color-stop(100%,#ff5722));
+        background:-webkit-linear-gradient(45deg,#ffc107 0,#ff5722 100%);
+        background:-o-linear-gradient(45deg,#ffc107 0,#ff5722 100%);
+        background:-ms-linear-gradient(45deg,#ffc107 0,#ff5722 100%);
+        background:linear-gradient(45deg,#ffc107 0,#ff5722 100%);
+        display:inline-block;
+        margin:.5em;
+        padding:.5em;
+        transition:all .5s;
+        filter:hue-rotate(0);color:#FFF;
+        text-decoration:none
+      }
+      .save_btn
+      {
+        font-size: 24px;
+        border-radius: 48px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        background:#ffc107;
+        background:-moz-linear-gradient(45deg,#499bea 0,#1abc9c 100%);
+        background:-webkit-gradient(left bottom,right top,color-stop(0,#499bea),color-stop(100%,#1abc9c));
+        background:-webkit-linear-gradient(45deg,#499bea 0,#1abc9c 100%);
+        background:-o-linear-gradient(45deg,#499bea 0,#1abc9c 100%);
+        background:-ms-linear-gradient(45deg,#499bea 0,#1abc9c 100%);
+        background:linear-gradient(45deg,#499bea 0,#1abc9c 100%);
+        display:inline-block;
+        margin:.5em;
+        padding:.5em;
+        transition:all .5s;
+        filter:hue-rotate(0);color:#FFF;
+        text-decoration:none
+      }
+      .to-hide
+      {
+        display: none;
+      }
+
+    </style></head>
+<body>
     <form action="index.php">
-        <div class="return-btn">
             <p>
-                <button type="submit">Вернуться</button>
+                <button class="return-btn" type="submit">Вернуться</button>
             </p>
-        </div>
     </form>
     <form action="save.php" method="POST">
-        <div class="login_label">
-            <p><input type="text" name="login" value="<?php $lgn = $_POST['login']; echo $lgn; ?>" readonly /></p>
-        </div>
-        <div class="text_area">
-            <p align="center"><textarea cols="200" maxlenght="10000" rows="50" name="data"><?php
+            <p><input type="text" class="to-hide" name="login" value="<?php $lgn = $_POST['login']; echo $lgn; ?>" readonly /></p>
+            <p align="left"><textarea class="comment" cols="50" maxlenght="10000" rows="10" name="data"><?php
                 require 'db.php';
                 $lgn = $_POST['login'];
                 $sql = "SELECT userIndex FROM data WHERE userLogin = '$lgn';";
@@ -20,9 +68,7 @@
                 $data = htmlentities(file_get_contents('data/' . $result[0] . '.txt'));
                 echo $data;
             ?></textarea></p>
-        </div>
-        <div class="save_btn">
-            <button type="submit">Сохранить</button>
-        </div>
+            <button class="save_btn" type="submit">Сохранить</button>
     </form>
+</body>
 </html>
