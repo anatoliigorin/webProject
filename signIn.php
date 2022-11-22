@@ -1,33 +1,33 @@
 
 <?php
 require 'db.php';
-    if(!empty($_POST))
+if(!empty($_POST))
+{
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $table_name = "data";
+    $sqlLogin ="SELECT userIndex FROM $table_name WHERE userLogin = '$login';";
+    $resultLogin = $db->query($sqlLogin);
+    $valueLogin = $resultLogin->fetch_array();
+    if(!empty($valueLogin))
     {
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-        $table_name = "data";
-        $sqlLogin ="SELECT userIndex FROM $table_name WHERE userLogin = '$login';";
-        $resultLogin = $db->query($sqlLogin);
-        $valueLogin = $resultLogin->fetch_array();
-        if(!empty($valueLogin))
+        $sqlPassword ="SELECT userIndex FROM $table_name WHERE userLogin = '$login' AND userPassword = '$password';";
+        $resultPassword = $db->query($sqlPassword);
+        $valuePassword = $resultPassword->fetch_array();
+        if (!empty($valuePassword))
         {
-            $sqlPassword ="SELECT userIndex FROM $table_name WHERE userLogin = '$login' AND userPassword = '$password';";
-            $resultPassword = $db->query($sqlPassword);
-            $valuePassword = $resultPassword->fetch_array();
-            if (!empty($valuePassword))
-            {
-                include 'page.php';
-            }
-            else
-            {
-            include 'index.php';
-            echo ("Пароль неправильный!");
-            }
+            include 'page.php';
         }
         else
-            {
+        {
             include 'index.php';
-            echo ("Такого пользователя не существует!");
-            }
+        }
     }
-?>
+    else
+        {
+            include 'index.php';
+        }
+}
+?></a>
+
+</div>
