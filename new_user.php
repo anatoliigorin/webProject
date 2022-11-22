@@ -5,12 +5,12 @@
   if (@sizeof($db->query($sql)->fetch_array()) > 0)
   {
     echo('Пользователь уже существует');
-    include 'signUp.php';
+    include 'index.php';
   }
   else if ($_POST['login']=='' || $_POST['password1']=='' || $_POST['password2']=='')
   {
     echo('Все поля должны быть заполнены!');
-    include 'signUp.php';
+    include 'index.php';
   }
   else if ($_POST['password1'] == $_POST['password2'])
   {    
@@ -29,6 +29,6 @@
   else
   {
     echo '<html><p align="center"><font color="red">Пароли не совпадают</font></p></html>';
-    include 'signUp.php';
+    include 'index.php';
   }
 ?>
