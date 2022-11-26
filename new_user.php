@@ -15,6 +15,7 @@
   else if ($_POST['password1'] == $_POST['password2'])
   {    
     $pswrd = $_POST['password1'];
+    $pswrd = hash("sha256", $pswrd);
     include 'index.php';
     include 'rand_generate.php';
     do{
