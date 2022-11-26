@@ -76,16 +76,14 @@
             </p> 
         </form>       
         <p align="left">
-            <textarea class="text-area" cols="50" maxlenght="10000" rows="10" id="txtArea">
-                <?php
-                    require 'db.php';
-                    $lgn = $_POST['login'];
-                    $sql = "SELECT userIndex FROM data WHERE userLogin = '$lgn';";
-                    $result = $db->query($sql)->fetch_array();
-                    $data = htmlspecialchars(file_get_contents('data/' . $result[0] . '.txt'));                               
-                    echo $data;
-                ?>
-            </textarea>
+            <textarea class="text-area" cols="50" maxlenght="10000" rows="10" id="txtArea"><?php                
+                require 'db.php';
+                $lgn = $_POST['login'];
+                $sql = "SELECT userIndex FROM data WHERE userLogin = '$lgn';";
+                $result = $db->query($sql)->fetch_array();
+                $data = htmlspecialchars(file_get_contents('data/' . $result[0] . '.txt'));                               
+                echo $data;                
+            ?></textarea>
         </p>
         <button id="saveButton" class="save-btn">Сохранить</button>    
         <script>
