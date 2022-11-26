@@ -24,42 +24,9 @@
 							</div>
 							<div class="group">
 								<input type="submit" class="button" value="Войти">
-							</div>
-							<div class="hr"></div>							
+							</div>														
 							<div class="error-msg">
-								<label for="tab-2">
-								<?php
-									require 'db.php';
-									if(!empty($_POST))
-									{
-										$login = $_POST['login'];
-										$password = $_POST['password'];
-										$password = hash("sha256", $password);
-										$table_name = "data";
-										$sqlLogin ="SELECT userIndex FROM $table_name WHERE userLogin = '$login';";
-										$resultLogin = $db->query($sqlLogin);
-										$valueLogin = $resultLogin->fetch_array();
-										if(!empty($valueLogin))
-										{
-											$sqlPassword ="SELECT userIndex FROM $table_name WHERE userLogin = '$login' AND userPassword = '$password';";
-											$resultPassword = $db->query($sqlPassword);
-											$valuePassword = $resultPassword->fetch_array();
-											if (!empty($valuePassword))
-											{
-												include 'page.php';
-											}
-											else
-											{
-												echo ("Пароль неправильный!");
-											}
-										}
-										else 
-										{
-											echo ("Такого пользователя не существует!");
-										}
-									}
-								?>
-								</a>
+								<label for="tab-2"></a>
 							</div>
 						</div>
 					</form>
