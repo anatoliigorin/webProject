@@ -16,16 +16,19 @@
   {    
     $pswrd = $_POST['password1'];
     $pswrd = hash("sha256", $pswrd);
-    include 'index.php';
     include 'rand_generate.php';
-    do{
+    do
+    {
         $genIndex = generate_index();
-    } while (@sizeof($db->query("SELECT * FROM data WHERE userIndex = '$genIndex';")->fetch_array()) > 0);
+    }
+    while (@sizeof($db->query("SELECT * FROM data WHERE userIndex = '$genIndex';")->fetch_array()) > 0);
 
     file_put_contents('data/' . $genIndex . '.txt', '');
     
     $sql = "INSERT INTO data VALUES ('$lgn', '$pswrd', '$genIndex');";
     $db->query($sql);
+
+    include 'page.php';
   }
   else
   {
