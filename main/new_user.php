@@ -4,12 +4,12 @@
   $sql = "SELECT * FROM data WHERE userLogin = '$lgn';";
   if (@sizeof($db->query($sql)->fetch_array()) > 0)
   {
-    include 'index.php';
+    include 'homePage.php';
     echo'<html><p align="center"><font color="red">Пользователь уже существует</font></p></html>';
   }
   else if ($_POST['login']=='' || $_POST['password1']=='' || $_POST['password2']=='')
   {
-    include 'index.php';
+    include 'homePage.php';
     echo '<html><p align="center"><font color="red">Все поля должны быть заполнены</font></p></html>';
   }
   else if ($_POST['password1'] == $_POST['password2'])
@@ -32,7 +32,7 @@
   }
   else
   {
-    include 'index.php';
+    include 'homePage.php';
     echo '<html><p align="center"><font color="red">Пароли не совпадают</font></p></html>';
   }
 ?>

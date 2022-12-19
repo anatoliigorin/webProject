@@ -7,7 +7,7 @@
     </head>
 
     <body class="body">
-        <form action="../index.php">
+        <form action="homePage.php">
             <p>
                 <button class="return-btn" type="submit">Вернуться</button>
             </p> 

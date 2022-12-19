@@ -20,13 +20,13 @@
             }
             else
             {
-                include 'index.php';
+                include 'homePage.php';
                 echo '<html><p align="center"><font color="red">Неправильный пароль</font></p></html>';
             }
         }
         else
         {
-            include 'index.php';
+            include 'homePage.php';
             echo '<html><p align="center"><font color="red">Логин не введен</font></p></html>';
         }
     }    
