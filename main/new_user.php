@@ -1,16 +1,16 @@
 <?php  
   require '../include/db.php';
   $lgn = $_POST['login'];
-  $sql = "SELECT * FROM data WHERE userLogin = '$lgn';";
-  if (@sizeof($db->query($sql)->fetch_array()) > 0)
-  {
-    include 'homePage.php';
-    echo'<html><p align="center"><font color="red">Пользователь уже существует</font></p></html>';
-  }
-  else if ($_POST['login']=='' || $_POST['password1']=='' || $_POST['password2']=='')
+  $sql = "SELECT * FROM data WHERE userLogin = '$lgn';";  
+  if ($_POST['login']=='' || $_POST['password1']=='' || $_POST['password2']=='')
   {
     include 'homePage.php';
     echo '<html><p align="center"><font color="red">Все поля должны быть заполнены</font></p></html>';
+  }
+  else if (@sizeof($db->query($sql)->fetch_array()) > 0)
+  {
+    include 'homePage.php';
+    echo'<html><p align="center"><font color="red">Пользователь уже существует</font></p></html>';
   }
   else if ($_POST['password1'] == $_POST['password2'])
   {    
