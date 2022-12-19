@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>Блокнот</title>		
 		<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
-		<link rel="stylesheet" href="css/indexStyle.css">		
+		<link rel="stylesheet" href="main/css/indexStyle.css">		
 	</head>
 	<body class="body">
 		<div class="login-wrap">
@@ -12,7 +12,7 @@
 				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Вход</label>
 				<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Регистрация</label>
 				<div class="login-form">
-					<form action="signIn.php" method="POST">
+					<form action="main/signIn.php" method="POST">
 						<div class="sign-in-htm">
 							<div class="group">
 								<label for="user" class="label">Логин</label>
@@ -30,7 +30,7 @@
 							</div>
 						</div>
 					</form>
-					<form action="new_user.php" method="POST">
+					<form action="main/new_user.php" method="POST">
 						<div class="sign-up-htm">
 							<div class="group">
 								<label for="user" class="label">Введите логин</label>

@@ -1,5 +1,5 @@
 <?php  
-  require 'db.php';
+  require '../include/db.php';
   $lgn = $_POST['login'];
   $sql = "SELECT * FROM data WHERE userLogin = '$lgn';";
   if (@sizeof($db->query($sql)->fetch_array()) > 0)
