@@ -1,5 +1,5 @@
 <?php  
-  require '../include/db.php';
+  require 'include/db.php';
   
   $data = $_POST["data"];
   $lgn = $_POST["login"];

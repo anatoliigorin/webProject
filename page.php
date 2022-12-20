@@ -7,14 +7,14 @@
     </head>
 
     <body class="body">
-        <form action="homePage.php">
+        <form action="index.php">
             <p>
                 <button class="return-btn" type="submit">Вернуться</button>
             </p> 
         </form>       
         <p align="left">
             <textarea class="text-area" cols="50" maxlenght="10000" rows="10" id="txtArea"><?php                
-                require '../include/db.php';
+                require 'include/db.php';
                 $lgn = $_POST['login'];
                 $sql = "SELECT userIndex FROM data WHERE userLogin = '$lgn';";
                 $result = $db->query($sql)->fetch_array();
