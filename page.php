@@ -18,7 +18,15 @@
                 $lgn = $_POST['login'];
                 $sql = "SELECT userIndex FROM data WHERE userLogin = '$lgn';";
                 $result = $db->query($sql)->fetch_array();
-                $data = htmlspecialchars(file_get_contents('data/' . $result[0] . '.txt'));                               
+                if (@file_get_contents('data/' . $result[0] . '.txt'))
+                {
+                    $data = htmlspecialchars(file_get_contents('data/' . $result[0] . '.txt'));
+                }
+                else
+                {
+                    file_put_contents('data/' . $result[0] . '.txt', '');
+                    $data = "";
+                }                
                 echo $data;                
             ?></textarea>
         </p>
